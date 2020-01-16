@@ -12,5 +12,8 @@
 
 # Now working on setting up a separate config file 
 * Basing off of https://sspinnovations.com/blog/python-best-practices-part-1/
+* Lives in scripts_RPI
 * run_default.cfg is the configuration file 
 * configureRPI.py is the python script which picks it up and configures raspberry pi
+* to copy to RPI 
+- source copyRPI.sh 
