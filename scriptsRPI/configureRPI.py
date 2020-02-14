@@ -7,6 +7,7 @@ import time
 import spidev
 import RPi.GPIO as GPIO
 
+import os
 import sys
 import datetime
 import configparser # assumes python3 
@@ -161,23 +162,31 @@ def configureETROC(cfg,output=False):
 
 def main():
 
+    print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
     # Get configuration file 
-    config_file = "run_default.cfg"
+    config_file = "configFiles/run_default.cfg"
     if len(sys.argv) > 1 : config_file = sys.argv[1]
     
-    print("Configuration File : {}".format(config_file))
+    if os.path.isfile(config_file):
+        print("Configuration File : {}".format(config_file))
 
-    # Read in configuration  
-    # Note ConfigParser reads in everything as strings, unless specified
-    # Need conversion done after reading in 
-    config = configparser.ConfigParser()
-    config.read(config_file)
+        # Read in configuration  
+        # Note ConfigParser reads in everything as strings, unless specified
+        # Need conversion done after reading in 
+        config = configparser.ConfigParser()
+        config.read(config_file)
 
-    # Configure the ETROC, needs to be done twice 
-    configureETROC(config,output=False)
-    configureETROC(config,output=True)
+        # Configure the ETROC, needs to be done twice 
+        configureETROC(config,output=False)
+        configureETROC(config,output=True)
 
-    print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        return 1
+
+    else : 
+        print("CONFIG DOES NOT EXIST!")
+        return 0
 
 if __name__ == "__main__":
     main()
