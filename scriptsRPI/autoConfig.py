@@ -41,21 +41,10 @@ while True:
             
             process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
 
-            return_code = process.poll()
-            if return_code is not None:
-                print("Return Code: {}".format(return_code))
-                for output in process.stdout.readlines():
-                    print(output.strip())
+            for output in process.stdout.readlines():
+                print(output.strip())
 
-
-            # say config was successful
-            fout = open(config_status,'w')  
-            if return_code == 1:
-                fout.write("SUCESS")
-            else : 
-                fout.write("CONFIG_FAILED")
-            fout.close()
-        
+     
             # update prev_config
             prev_config = config_name
 

@@ -15,5 +15,19 @@
 * Lives in scripts_RPI
 * run_default.cfg is the configuration file 
 * configureRPI.py is the python script which picks it up and configures raspberry pi
-* to copy to RPI 
+
+# On the raspberry pi 
+* To setup autoconfiguration, run
+- python autoConfig.py
+* This picks up changes to config.txt
+* And runs 'python3 configureRPI.py' if there's a new configuration
+* It also saves status to status.txt
+
+# On the daq computer
+* In scriptsDAQ directory, do
+- python sendRPIConfig.py XXXX
+* Where XXXX is the config number/name
+
+# Misc
+* to copy RPI code and config files to RPI 
 - source copyRPI.sh 

@@ -158,11 +158,16 @@ def configureETROC(cfg,output=False):
     # that the GPIO output pins retain the last value written
     # to them.
     # GPIO.cleanup()
+    if got_back==to_send:
+        return 1
+    else: 
+        return 0
 
 
 def main():
 
     print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    config_status = "status.txt"
 
     # Get configuration file 
     config_file = "configFiles/run_default.cfg"
@@ -178,15 +183,24 @@ def main():
         config.read(config_file)
 
         # Configure the ETROC, needs to be done twice 
-        configureETROC(config,output=False)
-        configureETROC(config,output=True)
+        status = configureETROC(config,output=False)
+        status = configureETROC(config,output=True)
+    
+        fout = open(config_status,'w')  
+        if status == 1: 
+            fout.write("SUCCESS")
+        else :
+            fout.write("FAILED")
+        fout.close()
 
-        print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-        return 1
 
     else : 
         print("CONFIG DOES NOT EXIST!")
-        return 0
+        fout = open(config_status,'w')  
+        fout.write("MISSING_CONFIG")
+        fout.close()
+
+    print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 if __name__ == "__main__":
-    main()
+     main()
