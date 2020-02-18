@@ -158,10 +158,14 @@ def configureETROC(cfg,output=False):
     # that the GPIO output pins retain the last value written
     # to them.
     # GPIO.cleanup()
-    if got_back==to_send:
-        return 1
-    else: 
-        return 0
+    success = 1
+    if got_back[0] != msg3 : success = 0
+    if got_back[1] != msg2 : success = 0
+    if got_back[2] != msg1 : success = 0
+    if got_back[3] != msg0 : success = 0
+    
+    
+    return success
 
 
 def main():
@@ -184,7 +188,9 @@ def main():
 
         # Configure the ETROC, needs to be done twice 
         status = configureETROC(config,output=False)
+        #print(status)
         status = configureETROC(config,output=True)
+        #print(status)
     
         fout = open(config_status,'w')  
         if status == 1: 
