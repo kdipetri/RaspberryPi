@@ -1,1 +1,4 @@
 scriptsRPI/configFiles
+*.pyc
+*/thresholdScan.txt
+*/tmp.txt

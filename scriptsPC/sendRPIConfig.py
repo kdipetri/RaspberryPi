@@ -3,11 +3,8 @@ import os
 import subprocess
 import sys
 
-def main():
+def sendRPIConfig(config_number):
 
-    # Get config number
-    config_number="default"
-    if len(sys.argv) > 1 : config_number = sys.argv[1]
     
     # Raspberry Pi IP address and filepath
     pi_path="pi@192.168.133.4:~/Documents"
@@ -45,6 +42,12 @@ def main():
     
     print("STATUS: {}".format(status))
 
+def main():
+    config_number="default"
+    if len(sys.argv) > 1 : config_number = sys.argv[1]
+
+    sendRPIConfig(config_number)
+
 
 if __name__ == "__main__":
-     main()
+    main()
