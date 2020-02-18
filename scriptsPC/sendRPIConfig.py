@@ -18,7 +18,6 @@ def main():
     f.write(config_number)
     f.close()
     
-    
     # Send config number to RPI
     bash_command = "scp {} {}/.".format(config_file,pi_path) 
     

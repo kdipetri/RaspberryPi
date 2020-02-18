@@ -46,4 +46,5 @@ def makeConfigs(DAC=200):
 
     return 
 
-makeConfigs()
+for DAC in range(0,1001):
+    makeConfigs(DAC)
