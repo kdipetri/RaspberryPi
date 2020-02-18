@@ -31,7 +31,7 @@ def main():
     #    print(output.strip())
     
     # Wait to make sure config is picked up
-    time.sleep(6)
+    time.sleep(3)
     
     # Now read back status
     bash_command = "scp {}/status.txt .".format(pi_path)

@@ -4,7 +4,7 @@ import subprocess
 
 debug = False 
 
-time_step = 5
+time_step = 1
 
 path_rpi = "/home/pi/Documents" 
 path_daq = "/home/daq/RaspberryPi/scriptsRPI" 
