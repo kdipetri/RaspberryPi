@@ -194,7 +194,7 @@ def main():
     
         fout = open(config_status,'w')  
         if status == 1: 
-            fout.write("SUCCESS")
+            fout.write("SUCCESS {}".format(config_file.split("/")[-1].strip(".cfg").strip("run_")))
         else :
             fout.write("FAILED")
         fout.close()
