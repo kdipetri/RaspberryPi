@@ -189,6 +189,10 @@ def main():
         # Configure the ETROC, needs to be done twice 
         status = configureETROC(config,output=False)
         #print(status)
+        status = configureETROC(config,output=False)
+        #print(status)
+        status = configureETROC(config,output=False)
+        #print(status)
         status = configureETROC(config,output=True)
         #print(status)
     

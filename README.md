@@ -1,7 +1,8 @@
 
 
 # Note raspberry pi IP address is 
-* 192.168.133.4
+* #192.168.133.4
+* 192.168.133.166
 
 # First setup raspberry pi for passwordless ssh 
 * See https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md 
@@ -9,6 +10,7 @@
 * Then do 
 - ssh-copy-id <USERNAME>@<IP-ADDRESS>
 - ssh-copy-id pi@192.168.133.4
+- #ssh-copy-id pi@192.168.133.166
 
 # Now working on setting up a separate config file 
 * Basing off of https://sspinnovations.com/blog/python-best-practices-part-1/

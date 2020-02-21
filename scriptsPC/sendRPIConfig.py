@@ -7,7 +7,8 @@ def sendRPIConfig(config_number):
 
     
     # Raspberry Pi IP address and filepath
-    pi_path="pi@192.168.133.4:~/Documents"
+    pi_path="pi@192.168.133.166:~/Documents"
+    #pi_path="pi@192.168.133.4:~/Documents"
 
     # Setup files to Send
     config_file = "config.txt"
