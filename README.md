@@ -9,8 +9,8 @@
 * Make sure you have an ssh key 
 * Then do 
 - ssh-copy-id <USERNAME>@<IP-ADDRESS>
-- ssh-copy-id pi@192.168.133.4
-- #ssh-copy-id pi@192.168.133.166
+- #ssh-copy-id pi@192.168.133.4
+- ssh-copy-id pi@192.168.133.166
 
 # Now working on setting up a separate config file 
 * Basing off of https://sspinnovations.com/blog/python-best-practices-part-1/
